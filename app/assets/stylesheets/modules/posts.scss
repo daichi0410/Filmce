@@ -81,17 +81,22 @@ a:hover{
       margin-top: 50px;
       color: black;
       font-family: 'Titillium Web', sans-serif;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
     &__start--btn:hover{
       background-color: red;
     }
-    &__logos__apple{
-      margin-top: 10px;
+    &__logos{
+      display: flex;
+    &__apple{
       display:inline-block;
       width:135px;
       height:40px;
     }
+    // &__android{
+    //   width:160px;
+    // }
+  }
 }
 }
 }
