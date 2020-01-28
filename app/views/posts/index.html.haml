@@ -1,0 +1,15 @@
+%nav.navbar.navbar-expand-sm.sticky-top.navbar-light{style: "background-color: #BAD3FF"}
+  %a.navbar-brand{href: root_path} Furtweet
+  %button.navbar-toggler{"aria-controls": "navbar", "aria-expanded": "false", "aria-label": "Toggle navigation", "data-target": "#navbar", "data-toggle": "collapse", type: "button"}
+    %span.navbar-toggler-icon
+  #navbar.collapse.navbar-collapse.justify-content-end
+    %ul.navbar-nav.mr-auto
+      %li.nav-item.dropdown
+        %a#dropdown.nav-link.dropdown-toggle{"aria-expanded": "false", "aria-haspopup": "true", "data-toggle": "dropdown", href: "#"} ドロップダウン
+        .dropdown-menu{"aria-labelledby": "dropdown"}
+          %a.dropdown-item{href: "#"} リンク1
+          %a.dropdown-item{href: "#"} リンク2
+          %a.dropdown-item{href: "#"} リンク3
+    %form.form-inline.my-2.my-md-0
+      %input.form-control.mr-sm-1{placeholder: "Search", type: "search"}
+      %button.btn.btn-outline-info.mt-2.my-sm-0{type: "submit"} Search
