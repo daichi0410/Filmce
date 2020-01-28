@@ -1,0 +1,97 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto|Titillium+Web&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap);
+
+*{
+  text-decoration: none;
+}
+
+a{
+  color: white;
+}
+
+a:hover{
+  color: white;
+}
+
+.header{
+  height: 70px;
+  width: 100%;
+  background-color: black;
+  &__menu{
+    line-height: 70px;
+    display: flex;
+    justify-content: left;
+    font-family: 'Titillium Web', sans-serif;
+    &__home{
+      margin-left: 30px;
+      margin-right: 30px; 
+    } 
+    &__movies{
+      margin-right: 30px;
+    } 
+    &__register{
+      margin-right: 30px;
+    } 
+    &__login{
+      margin-right: 30px;
+    } 
+    &__contact{
+      margin-right: 30px;
+    } 
+  }
+}
+
+.contants{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTlQDBKKDHTESMNUELgqVGzo5AmRHXEL0GKDuxdFZ1O7oKTfE5x");
+  background-repeat:  no-repeat;   
+  background-size: cover;
+  background-position: center;             /* 画像のサイズを指定    */
+  width:100%;                              /* 横幅のサイズを指定    */
+  height:400px; 
+  position: relative;   
+  &__bg{
+    background-color: rgba(0,0,0,.8);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;  
+   &__box{
+    position: relative;
+    z-index: 1;
+    margin-left: 30px;
+    margin-top: 100px;
+    &__name{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 50px;
+    color: #ffffff;
+    font-family: 'Titillium Web', sans-serif;
+  }
+    &__text{
+    color: #ffffff;
+    font-family: 'Titillium Web', sans-serif;
+    }
+    &__start--btn{
+      text-align: center;
+      padding: 10px 0;
+      display: inline-block;
+      width: 100px;
+      background-color: yellow;
+      border-radius: 27px;
+      margin-top: 50px;
+      color: black;
+      font-family: 'Titillium Web', sans-serif;
+      margin-bottom: 10px;
+    }
+    &__start--btn:hover{
+      background-color: red;
+    }
+    &__logos__apple{
+      margin-top: 10px;
+      display:inline-block;
+      width:135px;
+      height:40px;
+    }
+}
+}
+}
