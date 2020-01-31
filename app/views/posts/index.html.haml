@@ -17,6 +17,11 @@
     Contact
 
  .header__user
+  -# - if user_signed_in?
+  -#  = link_to current_user.name, class: "header_user_name" do
+  -#  = link_to edit_user_path(current_user),class:"header_user_edit" do
+  -#   = icon('fas', 'cog', class: 'icon')
+
   .header__user__name
    = current_user.name
   .header__user__edit
