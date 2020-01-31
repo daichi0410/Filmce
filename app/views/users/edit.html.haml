@@ -22,44 +22,30 @@
   .header__user__edit
    = link_to edit_user_path(current_user) do
     = icon('fas', 'cog', class: 'icon')
-    
 
 .account-page
  .account-page__inner
   .account-page__inner__top
-   .account-page__inner__top__s1
-    Join Filmce
-   = render "devise/shared/links"
+   .account-page__inner__top__s1      
+    %h2 Edit Account
+    = link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn'
+    = link_to "Home", root_path, class: 'btn'
+   .account-page__inner__under
+    = form_for(current_user) do |f|
+     .field
+      .field-label
+       = f.label :name
+      .field-input
+       = f.text_field :name, autofocus: true
+     .field
+      .field-label
+       = f.label :email
+      .field-input
+       = f.email_field :email
+     .actions
+      = f.submit "Update", class: 'actions__btn'
 
-  .account-page__inner__under
-   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = devise_error_messages!
-    .field
-     .field-label
-      = f.label :name
-     .field-input
-      = f.text_field :name, autofocus: true
-    .field
-     .field-label
-      = f.label :email
-     .field-input
-      = f.email_field :email
-    .field
-     .field-label
-      = f.label :password
-      %i (Minimum 8 words)
-     .field-input
-      = f.password_field :password, autocomplete: "off"
-    .field
-     .field-label
-      = f.label :password_confirmation
-     .field-input
-      = f.password_field :password_confirmation, autocomplete: "off"
-    .actions
-     = f.submit "Create Account", class: 'actions__btn'
-
-
-
+      
 .footer
  .footer__logo
   @2020 Daichi.T All rights reserved.
