@@ -1,32 +1,70 @@
-#account-page.account-page
-  .account-page__inner.clearfix
-    .account-page__inner--left.account-page__header
-      %h2 Create Account
-      %h5 新規アカウントの作成
-      = render "devise/shared/links"
-    .account-page__inner--right.user-form
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = devise_error_messages!
-        .field
-          .field-label
-            = f.label :name
-          .field-input
-            = f.text_field :name, autofocus: true
-        .field
-          .field-label
-            = f.label :email
-          .field-input
-            = f.email_field :email
-        .field
-          .field-label
-            = f.label :password
-            %i (英数字8文字以上)
-          .field-input
-            = f.password_field :password, autocomplete: "off"
-        .field
-          .field-label
-            = f.label :password_confirmation
-          .field-input
-            = f.password_field :password_confirmation, autocomplete: "off"
-        .actions
-          = f.submit "Create Account", class: 'btn'
+.header
+ .header__menu
+  .header__menu__home 
+   =link_to root_path, class:"header___menu__home__btn" do
+    Home
+  .header__menu__movies 
+   =link_to "#", class:"header__menu__movies__btn" do
+    Movies
+  .header__menu__register 
+   =link_to new_user_registration_path, class:"header__menu__register__btn" do
+    Register
+  .header__menu__login 
+   =link_to new_user_session_path, class:"header__menu__login__btn" do
+    Log in
+  .header__menu__contact 
+   =link_to "#", class:"header__menu__contact__btn" do
+    Contact
+
+.account-page
+ .account-page__inner
+  .account-page__inner__top
+   .account-page__inner__top__s1
+    Join Filmce
+   = render "devise/shared/links"
+
+  .account-page__inner__under
+   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    .field
+     .field-label
+      = f.label :name
+     .field-input
+      = f.text_field :name, autofocus: true
+    .field
+     .field-label
+      = f.label :email
+     .field-input
+      = f.email_field :email
+    .field
+     .field-label
+      = f.label :password
+      %i (Minimum 8 words)
+     .field-input
+      = f.password_field :password, autocomplete: "off"
+    .field
+     .field-label
+      = f.label :password_confirmation
+     .field-input
+      = f.password_field :password_confirmation, autocomplete: "off"
+    .actions
+     = f.submit "Create Account", class: 'actions__btn'
+
+
+
+.footer
+ .footer__logo
+  @2020 Daichi.T All rights reserved.
+ .footer__icon
+  .footer__icon__google
+   = link_to "https://www.google.co.jp/maps/?hl=ja", class: "contents__btn" do
+    = icon('fab', 'google')
+  .footer__icon__facebook
+   = link_to "https://www.facebook.com/", class: "contents__btn" do
+    = icon('fab', 'facebook-square')
+  .footer__icon__instagram
+   = link_to "https://www.instagram.com/", class: "contents__btn" do
+    = icon('fab', 'instagram')
+  .footer__icon__twitter
+   = link_to "https://twitter.com/", class: "contents__btn" do
+    = icon('fab', 'twitter')
