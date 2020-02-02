@@ -1,20 +1,32 @@
 .header
  .header__menu
   .header__menu__home 
-   =link_to "#", class:"header___menu__home__btn" do
+   =link_to root_path, class:"header___menu__home__btn" do
     Home
   .header__menu__movies 
    =link_to "#", class:"header__menu__movies__btn" do
     Movies
   .header__menu__register 
-   =link_to "#", class:"header__menu__register__btn" do
+   =link_to new_user_registration_path, class:"header__menu__register__btn" do
     Register
   .header__menu__login 
-   =link_to "#", class:"header__menu__login__btn" do
+   =link_to new_user_session_path, class:"header__menu__login__btn" do
     Log in
   .header__menu__contact 
    =link_to "#", class:"header__menu__contact__btn" do
     Contact
+
+ .header__user
+  -# - if user_signed_in?
+  -#  = link_to current_user.name, class: "header_user_name" do
+  -#  = link_to edit_user_path(current_user),class:"header_user_edit" do
+  -#   = icon('fas', 'cog', class: 'icon')
+
+  .header__user__name
+   = current_user.name
+  .header__user__edit
+   = link_to edit_user_path(current_user) do
+    = icon('fas', 'cog', class: 'icon')
 
 .contants 
  .contants__bg

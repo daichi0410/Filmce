@@ -16,38 +16,36 @@
    =link_to "#", class:"header__menu__contact__btn" do
     Contact
 
--#  .header__user
--#   .header__user__name
--#    Daichi
--#   .header__user__edit
--#    = link_to edit_user_path(current_user) do
--#     = icon('fas', 'cog', class: 'icon')
-
-
+ .header__user
+  .header__user__name
+   = current_user.name
+  .header__user__edit
+   = link_to edit_user_path(current_user) do
+    = icon('fas', 'cog', class: 'icon')
+    
 .account-page
  .account-page__inner
   .account-page__inner__top
    .account-page__inner__top__s1      
-    Log in
-    %br
-    = render "devise/shared/links"
-  .account-page__inner__under
-   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
-     .field-label
-      = f.label :email
-     .field-input
-      = f.email_field :email, autofocus: true
-    .field
-     .field-label
-      = f.label :password
-      %i (Minimum 8 words)
-     .field-input
-      = f.password_field :password, autocomplete: "off"
-    .actions
-     = f.submit "Log in", class: 'actions__btn'
+    %h2 Edit Account
+    = link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn'
+    = link_to "Home", root_path, class: 'btn'
+   .account-page__inner__under
+    = form_for(current_user) do |f|
+     .field
+      .field-label
+       = f.label :name
+      .field-input
+       = f.text_field :name, autofocus: true
+     .field
+      .field-label
+       = f.label :email
+      .field-input
+       = f.email_field :email
+     .actions
+      = f.submit "Update", class: 'actions__btn'
 
-
+      
 .footer
  .footer__logo
   @2020 Daichi.T All rights reserved.
