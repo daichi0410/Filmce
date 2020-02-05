@@ -10,26 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_02_065924) do
-
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "text", null: false
-    t.bigint "feeling_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["feeling_id"], name: "index_comments_on_feeling_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "feeling_movies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "feeling_id"
-    t.bigint "movie_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["feeling_id"], name: "index_feeling_movies_on_feeling_id"
-    t.index ["movie_id"], name: "index_feeling_movies_on_movie_id"
-  end
+ActiveRecord::Schema.define(version: 2020_02_05_030728) do
 
   create_table "feelings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -41,17 +22,10 @@ ActiveRecord::Schema.define(version: 2020_02_02_065924) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "text", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "movie_id"
-    t.index ["movie_id"], name: "index_posts_on_movie_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.integer "user_id"
+    t.text "text"
+    t.text "image"
+    t.integer "feeling_id"
   end
 
   create_table "user_feelings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,15 +35,6 @@ ActiveRecord::Schema.define(version: 2020_02_02_065924) do
     t.datetime "updated_at", null: false
     t.index ["feeling_id"], name: "index_user_feelings_on_feeling_id"
     t.index ["user_id"], name: "index_user_feelings_on_user_id"
-  end
-
-  create_table "user_movies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "movie_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_user_movies_on_movie_id"
-    t.index ["user_id"], name: "index_user_movies_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -86,14 +51,6 @@ ActiveRecord::Schema.define(version: 2020_02_02_065924) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "comments", "feelings"
-  add_foreign_key "comments", "users"
-  add_foreign_key "feeling_movies", "feelings"
-  add_foreign_key "feeling_movies", "movies"
-  add_foreign_key "posts", "movies"
-  add_foreign_key "posts", "users"
   add_foreign_key "user_feelings", "feelings"
   add_foreign_key "user_feelings", "users"
-  add_foreign_key "user_movies", "movies"
-  add_foreign_key "user_movies", "users"
 end

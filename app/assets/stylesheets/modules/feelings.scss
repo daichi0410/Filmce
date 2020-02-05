@@ -1,0 +1,62 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto|Titillium+Web&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap);
+
+.posts{
+    background-image: url("https://i.ytimg.com/vi/YGnEl88H-PY/maxresdefault.jpg");
+    background-size: cover;
+    overflow: scroll;
+    height: 100vh;
+    width: 100%;
+  &__box{
+    height: 100vh;
+    width: 70%;
+    margin-left: 50px;
+    margin-top: 70px;
+    display: flex;
+    justify-content: center; 
+    &__left{
+      margin: 0 auto;
+      width: 50%;
+    &__name{
+      margin: 0 0 0 auto;
+
+      height:50px;
+      width: 50px;
+      border-radius:50%;
+      line-height:50px;
+      text-align:center;
+      font-family: 'Titillium Web', sans-serif;
+      background-color: yellow;
+    }
+  }
+   &__right{
+     width: 50%;
+     margin-left: 20px;
+    &__content{
+        line-height: 50px;
+        color:white;
+        font-size: 30px;
+        font-family: 'Titillium Web', sans-serif;
+  }
+}
+  }
+}
+//     &__form{
+//       height: 100px;
+//       background-color: yellow;
+//     }
+//   }
+//   &__box1{
+//     height: 400px;
+//     width: 300px;
+//     background-color: white;
+//     margin-right: 20px;
+//     margin-top: 80px;
+//   }
+//   &__box2{
+//     height: 400px;
+//     width: 300px;
+//     background-color: white;
+//     margin-top: 80px;
+//   }
+// }

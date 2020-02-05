@@ -5,8 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
    has_many :posts
    has_many :comments
-   has_many :user_movies
-   has_many :movies, through: :user_movies
    has_many :user_feelings
    has_many :feelings, through: :user_feelings
+   has_many :movies
 end
