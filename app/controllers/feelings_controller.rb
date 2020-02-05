@@ -10,8 +10,7 @@ class FeelingsController < ApplicationController
   end
 
   def new
-    @feeling.Feeling.new
-    @feeling.movies.build
+    @movie = Movie.new
   end
 
   private

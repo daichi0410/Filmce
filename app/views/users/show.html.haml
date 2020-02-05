@@ -17,10 +17,6 @@
     Post
 
  .header__user
-  -# - if user_signed_in?
-  -#  = link_to current_user.name, class: "header_user_name" do
-  -#  = link_to edit_user_path(current_user),class:"header_user_edit" do
-  -#   = icon('fas', 'cog', class: 'icon')
   - if user_signed_in?
    .header__user__name
     = link_to current_user.name , user_path(current_user)
@@ -29,17 +25,19 @@
      = icon('fas', 'cog', class: 'icon')
 
 
-.form
- = form_for @movie, url: movies_path, method: :post do |movies_form|
-  = movies_form.select :feeling_id,[["HeartBreak?","1"],["Study?","2"],["Technology?","3"],["Adventurous?","4"],["Scary?","5"],["Surprise?","6"]], :prompt => "Current Feeling?", class:"form__feeling"
-  = movies_form.label :name, "Movie title :", class: "form__title-form"
-  = movies_form.text_field :name
-  = movies_form.label :text, "Comment :" ,class: "form__comment-form"
-  = movies_form.text_field :text
-  = movies_form.label :image, "Movie Poster", class: "form__poster-form" do
-   = icon("fas","film",class:"movie-icon")
-   = movies_form.file_field :image, class:"hidden"
-  = movies_form.submit "Post", class:"form__submit"
+
+.posts
+ - @movie.each do |movie|
+  .posts__box
+   .posts__box__name
+    = movie.name
+   .posts__box__image
+    = image_tag movie.image.to_s
+   .posts__box__comment
+    = movie.text
+   .posts__box__user
+    = movie.user.name
+
 
 .footer
  .footer__logo

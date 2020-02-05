@@ -13,43 +13,46 @@
    =link_to new_user_session_path, class:"header__menu__login__btn" do
     Log in
   .header__menu__contact 
-   =link_to "#", class:"header__menu__contact__btn" do
-    Contact
+   =link_to new_feeling_path, class:"header__menu__contact__btn" do
+    Post
 
  .header__user
-  -# - if user_signed_in?
-  -#  = link_to current_user.name, class: "header_user_name" do
-  -#  = link_to edit_user_path(current_user),class:"header_user_edit" do
-  -#   = icon('fas', 'cog', class: 'icon')
+  - if user_signed_in?
+   .header__user__name
+    = link_to current_user.name , user_path(current_user)
+   .header__user__edit
+    = link_to edit_user_path(current_user) do
+     = icon('fas', 'cog', class: 'icon')
 
-  .header__user__name
-   = current_user.name
-  .header__user__edit
-   = link_to edit_user_path(current_user) do
-    = icon('fas', 'cog', class: 'icon')
 
 
 .posts
- .posts__box
-  .posts__box__left
-   - @feeling.movies.each do |movie|
-    .posts__box__left__name
-     = movie.user.name
-  .posts__box__right
-   - @feeling.movies.each do |movie|
-    .posts__box__right__content
-     = movie.name
+ - @feeling.movies.each do |movie|
+  .posts__box
+   .posts__box__name
+    = movie.name
+   .posts__box__image
+    = image_tag movie.image.to_s
+   .posts__box__comment
+    = movie.text
+   .posts__box__user
+    = movie.user.name
 
-  .posts__box__form
-   = form_for @movie, url: movies_path, method: :post do |movies_form|
-    = movies_form.label :name, "Movie title"
-    = movies_form.text_field :name
-    = movies_form.label :image, "Movie Poster"
-    = movies_form.text_field :image
-    = movies_form.label :text, "Detail comment"
-    = movies_form.text_field :text
-    = movies_form.select :feeling_id,[["HeartBreak?","1"],["Study?","2"],["Technology?","3"],["Adventurous?","4"],["Scary?","5"],["Surprise?","6"]], :prompt => "Current Feeling?"
-    = movies_form.submit "Submit"
+-#  .posts__form
+-#   = form_for @movie, url: movies_path, method: :post do |movies_form|
+-#    = movies_form.select :feeling_id,[["HeartBreak?","1"],["Study?","2"],["Technology?","3"],["Adventurous?","4"],["Scary?","5"],["Surprise?","6"]], :prompt => "Current Feeling?", class:"posts__form__feeling"
+-#    %br
+-#    = movies_form.label :name, "Movie title :", class: "posts__form__title-form"
+-#    = movies_form.text_field :name
+-#    %br
+-#    = movies_form.label :text, "Comment :" ,class: "posts__form__comment-form"
+-#    = movies_form.text_field :text
+-#    %br
+-#    = movies_form.label :image, "Movie Poster", class: "posts__form__poster-form" do
+-#     = icon("fas","film",class:"movie-icon")
+-#     = movies_form.file_field :image, class:"hidden"
+-#    %br
+-#    = movies_form.submit "Post", class:"posts__form__submit"
 
 
 .footer

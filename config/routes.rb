@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   get "posts/index"
   root "posts#index"
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:edit, :update, :show]
   resources :feelings, only: [:new,:show, :index, :create]
   resources :movies, only: [:create]
     
