@@ -1,4 +1,9 @@
 class MoviesController < ApplicationController
+
+  def index
+    @movie = Movie.all.includes(:user)
+    
+  end
   def create
     movie = Movie.create(movie_params)
     puts

@@ -4,7 +4,7 @@
    =link_to root_path, class:"header___menu__home__btn" do
     Home
   .header__menu__movies 
-   =link_to "#", class:"header__menu__movies__btn" do
+   =link_to movies_path, class:"header__menu__movies__btn" do
     Movies
   - if user_signed_in?
    =render :partial => "index"

@@ -1,0 +1,9 @@
+.mi1
+=@movie.inspect
+
+- @movie.each do |movie|
+ = movie.name
+ = image_tag movie.image.to_s
+ = movie.text
+ = movie.user.name
+

@@ -6,7 +6,7 @@ class FeelingsController < ApplicationController
 
   def show
     @feeling = Feeling.find(params[:id])
-    @movie = Movie.find(params[:id])
+    @movie = Movie.new
   end
 
   def new
