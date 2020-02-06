@@ -15,6 +15,7 @@
   .header__menu__contact 
    =link_to new_feeling_path, class:"header__menu__contact__btn" do
     Post
+
  .header__user
   - if user_signed_in?
    .header__user__name
@@ -23,29 +24,36 @@
     = link_to edit_user_path(current_user) do
      = icon('fas', 'cog', class: 'icon')
 
-.account-page
- .account-page__inner
-  .account-page__inner__top
-   .account-page__inner__top__s1      
-    %h2 Edit Account
-    = link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn'
-    = link_to "Home", root_path, class: 'btn'
-   .account-page__inner__under
-    = form_for(current_user) do |f|
-     .field
-      .field-label
-       = f.label :name
-      .field-input
-       = f.text_field :name, autofocus: true
-     .field
-      .field-label
-       = f.label :email
-      .field-input
-       = f.email_field :email
-     .actions
-      = f.submit "Update", class: 'actions__btn'
+.posts
+ - @feeling.movies.each do |movie|
+  .posts__box
+   .posts__box__name
+    = link_to movie_path(movie.id) do
+     = movie.name
+   .posts__box__image
+    = image_tag movie.image.to_s
+   .posts__box__comment
+    = movie.text
+   .posts__box__user
+    = movie.user.name
 
-      
+-#  .posts__form
+-#   = form_for @movie, url: movies_path, method: :post do |movies_form|
+-#    = movies_form.select :feeling_id,[["HeartBreak?","1"],["Study?","2"],["Technology?","3"],["Adventurous?","4"],["Scary?","5"],["Surprise?","6"]], :prompt => "Current Feeling?", class:"posts__form__feeling"
+-#    %br
+-#    = movies_form.label :name, "Movie title :", class: "posts__form__title-form"
+-#    = movies_form.text_field :name
+-#    %br
+-#    = movies_form.label :text, "Comment :" ,class: "posts__form__comment-form"
+-#    = movies_form.text_field :text
+-#    %br
+-#    = movies_form.label :image, "Movie Poster", class: "posts__form__poster-form" do
+-#     = icon("fas","film",class:"movie-icon")
+-#     = movies_form.file_field :image, class:"hidden"
+-#    %br
+-#    = movies_form.submit "Post", class:"posts__form__submit"
+
+
 .footer
  .footer__logo
   @2020 Daichi.T All rights reserved.

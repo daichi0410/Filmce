@@ -13,39 +13,32 @@
    =link_to new_user_session_path, class:"header__menu__login__btn" do
     Log in
   .header__menu__contact 
-   =link_to "#", class:"header__menu__contact__btn" do
+   =link_to new_feeling_path, class:"header__menu__contact__btn" do
     Post
 
--#  .header__user
--#   .header__user__name
--#    Daichi
--#   .header__user__edit
--#    = link_to edit_user_path(current_user) do
--#     = icon('fas', 'cog', class: 'icon')
+ .header__user
+  - if user_signed_in?
+   .header__user__name
+    = link_to current_user.name , user_path(current_user)
+   .header__user__edit
+    = link_to edit_user_path(current_user) do
+     = icon('fas', 'cog', class: 'icon')
+
+.movie
+ .movie__poster
+  = @movie.name
+  = @movie.text
+  = image_tag @movie.image.to_s
 
 
-.account-page
- .account-page__inner
-  .account-page__inner__top
-   .account-page__inner__top__s1      
-    Log in
-    %br
-    = render "devise/shared/links"
-  .account-page__inner__under
-   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
-     .field-label
-      = f.label :email
-     .field-input
-      = f.email_field :email, autofocus: true
-    .field
-     .field-label
-      = f.label :password
-      %i (Minimum 8 words)
-     .field-input
-      = f.password_field :password, autocomplete: "off"
-    .actions
-     = f.submit "Log in", class: 'actions__btn'
+.container
+ =form_with(model: [@movie,@comment]) do |form|
+  =form.text_area :text, placeholder:"Puts the comment", rows: "2"
+  =form.submit "Send"
+
+- @comments.each do |comment|
+ = comment.user.name
+ = comment.text 
 
 
 .footer
