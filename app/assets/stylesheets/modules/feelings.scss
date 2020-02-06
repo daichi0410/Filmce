@@ -45,7 +45,12 @@
   width: 100%;
   display: flex;
   font-family: 'Titillium Web', sans-serif;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
   &__box{
+    display: inline-block;
+    width: 90%;
     width: 300px;
     height: calc(100vh - 200px);
     margin-left: 50px;

@@ -28,18 +28,23 @@
     = link_to edit_user_path(current_user) do
      = icon('fas', 'cog', class: 'icon')
 
-
 .form
- = form_for @movie, url: movies_path, method: :post do |movies_form|
-  = movies_form.select :feeling_id,[["HeartBreak?","1"],["Study?","2"],["Technology?","3"],["Adventurous?","4"],["Scary?","5"],["Surprise?","6"]], :prompt => "Current Feeling?", class:"form__feeling"
-  = movies_form.label :name, "Movie title :", class: "form__title-form"
-  = movies_form.text_field :name
-  = movies_form.label :text, "Comment :" ,class: "form__comment-form"
-  = movies_form.text_field :text
-  = movies_form.label :image, "Movie Poster", class: "form__poster-form" do
-   = icon("fas","film",class:"movie-icon")
-   = movies_form.file_field :image, class:"hidden"
-  = movies_form.submit "Post", class:"form__submit"
+ .form__inner
+  = form_for @movie, url: movies_path, method: :post do |movies_form|
+   .form__inner__select
+    = movies_form.select :feeling_id,[["HeartBreak?","1"],["Study?","2"],["Technology?","3"],["Adventurous?","4"],["Scary?","5"],["Surprise?","6"]], :prompt => "Choose Feeling!", class:"form__inner__select__feeling"
+   .form__inner__title
+    = movies_form.label :name, "Movie title :", class: "form__inner__title__name"
+    = movies_form.text_field :name, class: "form__inner__title__box"
+   .form__inner__comment
+    = movies_form.label :text, "Comment :" ,class: "form__inner__comment__name"
+    = movies_form.text_area :text,class: "form__inner__comment__box"
+   .form__inner__image
+    = movies_form.label :image, "Movie Poster", class: "form__inner__image__name" do
+     = icon("fas","film",class:"movie-icon")
+     = movies_form.file_field :image, class:"hidden"
+   .form__inner__action
+    = movies_form.submit "Post", class:"form__inner__action__submit"
 
 .footer
  .footer__logo

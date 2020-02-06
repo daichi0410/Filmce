@@ -24,34 +24,21 @@
     = link_to edit_user_path(current_user) do
      = icon('fas', 'cog', class: 'icon')
 
-.posts
- - @feeling.movies.each do |movie|
-  .posts__box
-   .posts__box__name
-    = link_to movie_path(movie.id) do
-     = movie.name
-   .posts__box__image
-    = image_tag movie.image.to_s
-   .posts__box__comment
-    = movie.text
-   .posts__box__user
-    = movie.user.name
+.movie
+ .movie__poster
+  = @movie.name
+  = @movie.text
+  = image_tag @movie.image.to_s
 
--#  .posts__form
--#   = form_for @movie, url: movies_path, method: :post do |movies_form|
--#    = movies_form.select :feeling_id,[["HeartBreak?","1"],["Study?","2"],["Technology?","3"],["Adventurous?","4"],["Scary?","5"],["Surprise?","6"]], :prompt => "Current Feeling?", class:"posts__form__feeling"
--#    %br
--#    = movies_form.label :name, "Movie title :", class: "posts__form__title-form"
--#    = movies_form.text_field :name
--#    %br
--#    = movies_form.label :text, "Comment :" ,class: "posts__form__comment-form"
--#    = movies_form.text_field :text
--#    %br
--#    = movies_form.label :image, "Movie Poster", class: "posts__form__poster-form" do
--#     = icon("fas","film",class:"movie-icon")
--#     = movies_form.file_field :image, class:"hidden"
--#    %br
--#    = movies_form.submit "Post", class:"posts__form__submit"
+
+.container
+ =form_with(model: [@movie,@comment]) do |form|
+  =form.text_area :text, placeholder:"Puts the comment", rows: "2"
+  =form.submit "Send"
+
+- @comments.each do |comment|
+ = comment.user.name
+ = comment.text 
 
 
 .footer
