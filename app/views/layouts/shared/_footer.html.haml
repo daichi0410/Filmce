@@ -1,18 +1,3 @@
-.header
- = render "layouts/shared/header"
-
-.blank
-
-.movie
- - @movie.each do |movie|
-  .movie__box
-   .movie__box__mi1
-    = image_tag movie.image.to_s
-   .movie__box__name
-    = link_to movie_path(movie.id),class: "link" do
-     =movie.name
-
-
 .footer
  .footer__logo
   @2020 Daichi.T All rights reserved.

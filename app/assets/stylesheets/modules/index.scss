@@ -1,36 +1,68 @@
-.mi1{
-  width:100px;
-  height:100px;
-  margin-top:0px;
-  background-color:#f00;
+@import url(https://fonts.googleapis.com/css?family=Roboto|Titillium+Web&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap);
+
+body{
+  overflow: scroll;
+}
+
+
+.movie{
+  width: 1200px;
+  display:flex;
+  flex-wrap:wrap;
+  margin: 0 auto;
+  height: 500px;
+  animation-name: fadein;
+  animation-duration: 3s;
+  &__box{
+    margin-right: 30px;
+&__mi1{
+  // flex:1 1 170px;
+  text-align: center;
+  width:200px;
+  height:200px;
+  margin-top:120px;
+  background-color:black;
   border-radius: 50%;
-  position:relative;
   overflow:hidden;
+  transition: .5s ;
+  // transform: rotateY( 0deg ) ;
+  // position: sticky;
+  margin-bottom: 15px;
+
+  
 }
-.mi1::before{
-  display:block;
-  content:"";
-  width:25px;
-  height:25px;
-  top:25px;
-  left:25px;
-  position: absolute;
-  background-color:#fff;
-  border-radius: 50%;  
-  z-index:2;
-  filter: blur(5px);
+&__mi1:hover{
+  transform: rotateY( 360deg ) ;
+  transition: s ease-in-out;
 }
-.mi1::after{
-  display:block;
-  content:"";
-  width:100px;
-  height:100px;
-  top:0px;
-  left:0px;
-  position: absolute;
-  filter: blur(5px);
-  background-color:transparent;
-  z-index:1;
-  box-shadow: inset -10px -10px 0 3px #400;
-  border-radius: 50%;
+  &__name{
+    text-align: center;
+    right: 10px;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: bold;
+  }
 }
+}
+
+.link{
+  color: black;
+  text-align: center;
+  right: 10px;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: bold; 
+}
+
+.footer{
+}
+
+@keyframes fadein {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}  
