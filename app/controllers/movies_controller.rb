@@ -13,8 +13,9 @@ class MoviesController < ApplicationController
     puts movie.errors.full_messages
     puts
 
+    redirect_to movie_path(movie.id)
+
     # Movie.create(movie_params)
-    redirect_to root_path
   end
 
   def show
@@ -22,6 +23,10 @@ class MoviesController < ApplicationController
     # includes(:user)
     @comments = @movie.comments.includes(:user)
     @comment = @movie.comments.new
+
+    render :show
+
+    # redirect_to movie_path(@comments)
   end
 
   private

@@ -55,7 +55,7 @@ a{
 }
 
 .contants{
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTlQDBKKDHTESMNUELgqVGzo5AmRHXEL0GKDuxdFZ1O7oKTfE5x");
+  background-image: url("tumblr_30d670d7637fc673adb3e479e1fb5e77_77be395c_500 (1)");
   background-repeat:  no-repeat;   
   background-size: cover;
   background-position: center;             /* 画像のサイズを指定    */
@@ -63,12 +63,14 @@ a{
   height:400px; 
   position: relative;   
   &__bg{
-    background-color: rgba(0,0,0,.8);
+    // background-color: rgba(0,0,0,.8);
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;  
+    color: #ffffff;
+    font-family: 'Titillium Web', sans-serif;
    &__box{
     position: relative;
     z-index: 1;

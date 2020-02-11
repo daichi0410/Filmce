@@ -11,7 +11,20 @@ class FeelingsController < ApplicationController
 
   def new
     @movie = Movie.new
+    if @movie.save
+      redirect_to toot_path
+  else
+    render :new
   end
+  end
+  
+  def create
+    @movie = Movie.new
+    redirect_to root_path
+  end
+
+
+
 
   private
   def feeling_params

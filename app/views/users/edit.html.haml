@@ -1,27 +1,5 @@
 .header
- .header__menu
-  .header__menu__home 
-   =link_to root_path, class:"header___menu__home__btn" do
-    Home
-  .header__menu__movies 
-   =link_to "#", class:"header__menu__movies__btn" do
-    Movies
-  .header__menu__register 
-   =link_to new_user_registration_path, class:"header__menu__register__btn" do
-    Register
-  .header__menu__login 
-   =link_to new_user_session_path, class:"header__menu__login__btn" do
-    Log in
-  .header__menu__contact 
-   =link_to new_feeling_path, class:"header__menu__contact__btn" do
-    Post
- .header__user
-  - if user_signed_in?
-   .header__user__name
-    = link_to current_user.name , user_path(current_user)
-   .header__user__edit
-    = link_to edit_user_path(current_user) do
-     = icon('fas', 'cog', class: 'icon')
+ = render "layouts/shared/header"
 
 .account-page
  .account-page__inner
@@ -47,18 +25,4 @@
 
       
 .footer
- .footer__logo
-  @2020 Daichi.T All rights reserved.
- .footer__icon
-  .footer__icon__google
-   = link_to "https://www.google.co.jp/maps/?hl=ja", class: "contents__btn" do
-    = icon('fab', 'google')
-  .footer__icon__facebook
-   = link_to "https://www.facebook.com/", class: "contents__btn" do
-    = icon('fab', 'facebook-square')
-  .footer__icon__instagram
-   = link_to "https://www.instagram.com/", class: "contents__btn" do
-    = icon('fab', 'instagram')
-  .footer__icon__twitter
-   = link_to "https://twitter.com/", class: "contents__btn" do
-    = icon('fab', 'twitter')
+ = render "layouts/shared/footer"
