@@ -11,9 +11,11 @@ body{
   display:flex;
   flex-wrap:wrap;
   margin: 0 auto;
-  height: 500px;
+  height: calc(100vh -110px);
+  overflow: scroll;
   animation-name: fadein;
   animation-duration: 3s;
+  margin-bottom: 50px;
   &__box{
     margin-right: 30px;
 &__mi1{
