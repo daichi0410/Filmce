@@ -28,9 +28,7 @@ class FeelingsController < ApplicationController
 
   private
   def feeling_params
-    params.require(:feeling).permit(
-      movies_attributes:[:id,:name,:text,:image]
-    )
+    params.require(:feeling).permit(movies_attributes:[:id,:name,:text,:image])
   end
 
 end
