@@ -28,8 +28,9 @@
 }
 
 .account-page {
-  background-image: image_url("CanineInbornGull-small.gif");
+  background-image: image_url("haikei.png");
   background-size: cover;
+  background-position: 60% 50%;
   height: 100vh;
   .account-page__inner {
     color: white;
@@ -183,7 +184,7 @@
     list-style: none;
     padding-left: 20px;
     font-family: 'Titillium Web', sans-serif;
-    list-style: url('ghost.png') inside;
+    list-style: image_url('ghost.png') inside;
   }
 
 

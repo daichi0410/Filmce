@@ -1,17 +1,14 @@
 .header
  = render "layouts/shared/header"
 
-.posts
+.movie
  - @movie.each do |movie|
-  .posts__box
-   .posts__box__name
-    = movie.name
-   .posts__box__image
+  .movie__box
+   .movie__box__mi1
     = image_tag movie.image.to_s
-   .posts__box__comment
-    = movie.text
-   .posts__box__user
-    = movie.user.name
+   .movie__box__name
+    = link_to movie_path(movie.id),class: "link" do
+     =movie.name
 
 .footer
  = render "layouts/shared/footer"
