@@ -53,5 +53,5 @@ production:
   username: Filmce
   password: <%= ENV['FILMCE_DATABASE_PASSWORD'] %>
   # adapter: postgresql
-  encoding: unicode
-  pool: 10
+  # encoding: unicode
+  # pool: 10
