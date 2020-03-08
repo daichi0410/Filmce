@@ -50,8 +50,6 @@ test:
 production:
   <<: *default
   database: Filmce_production
-  username: Filmce
-  password: <%= ENV['FILMCE_DATABASE_PASSWORD'] %>
-  # adapter: postgresql
-  # encoding: unicode
-  # pool: 10
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
